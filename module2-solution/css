@@ -1,29 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Responsive Page</title>
-</head>
-<body>
-    <header>
-        <h1>Page Heading</h1>
-    </header>
-    <main>
-        <section class="section desktop">
-            <h2>Chicken</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </section>
-        <section class="section desktop">
-            <h2>Beef</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </section>
-        <section class="section desktop">
-            <h2>Sushi</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </section>
-    </main>
-</body>
-</html>
+/* Reset some default styles for better consistency */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
 
+/* Apply a basic style to the whole page */
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Desktop view */
+.section.desktop {
+    width: 32%; /* Three sections in one row */
+    margin-bottom: 20px;
+    border: 1px solid #000;
+    background-color: #f0f0f0;
+    position: relative;
+}
+
+/* Section Title */
+.section.desktop h2 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+}
+
+/* Tablet view */
+@media (max-width: 991px) {
+    .section.desktop {
+        width: 49%; /* Two sections in one row */
+    }
+    .section.desktop:nth-child(3) {
+        width: 100%; /* The third section takes the full width in a new row */
+    }
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+    .section.desktop {
+        width: 100%; /* Each section takes full width in a new row */
+    }
+}
